@@ -1,6 +1,9 @@
 import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 
 public class Gui {
 
@@ -48,31 +51,40 @@ public class Gui {
         painelImagem.add(barraBotoes, BorderLayout.NORTH);
 
         jbEscolhaImagem.addActionListener(w -> {
-             nomeArquivo = JOptionPane.showInputDialog("Insira o nome do arquivo que você deseja transformar!");
+            nomeArquivo = getFileAdress();
+             //nomeArquivo = JOptionPane.showInputDialog("Insira o nome do arquivo que você deseja transformar!");
         });
         
         jbGreyscale.addActionListener(w -> {
             String opcaoDesejada = "1";
         	jbGreyscale.setToolTipText("Transforma as Cores para Cinza");
-            Controller.transformImage(nomeArquivo, opcaoDesejada);
+            if(nomeArquivo != null) {
+                Controller.transformImage(nomeArquivo, opcaoDesejada);
+            }
         });
 
         jbBlackWhite.addActionListener(w -> {
             String opcaoDesejada = "2";
             jbBlackWhite.setToolTipText("Transforma as Cores para Preto e Branco");
-            Controller.transformImage(nomeArquivo, opcaoDesejada);
+            if(nomeArquivo != null) {
+                Controller.transformImage(nomeArquivo, opcaoDesejada);
+            }
         });
 
         jbEdge.addActionListener(w -> {
             String opcaoDesejada = "3";
             jbEdge.setToolTipText("Refina as bordas a Imagem");
-            Controller.transformImage(nomeArquivo, opcaoDesejada);
+            if(nomeArquivo != null) {
+                Controller.transformImage(nomeArquivo, opcaoDesejada);
+            }
         });
 
         jbSharpen.addActionListener(w -> {
             String opcaoDesejada = "4";
             jbSharpen.setToolTipText("Aumenta a nitidez da Imagem");
-            Controller.transformImage(nomeArquivo, opcaoDesejada);
+            if(nomeArquivo != null) {
+                Controller.transformImage(nomeArquivo, opcaoDesejada);
+            }
         });
 
         jbHistogran.addActionListener(w -> {
@@ -85,7 +97,18 @@ public class Gui {
             System.exit(0);
         });
 	}
-	
-	
-	
+
+    private String getFileAdress() {
+        JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView());
+        jfc.setCurrentDirectory(new File(System.getProperty("user.dir")));
+        int returnValue = jfc.showOpenDialog(null);
+        String pathString = null;
+        if(returnValue == JFileChooser.APPROVE_OPTION) {
+            File name = jfc.getSelectedFile();
+            pathString = name.toPath().toString();
+        }
+        return pathString;
+    }
+
+
 }

@@ -19,7 +19,8 @@ public class Reader {
         File file = null;
 
         try{
-            file = new File(nomeArquivo + ".jpg");
+            //file = new File(nomeArquivo + ".jpg");
+            file = new File(nomeArquivo);
             imagem = ImageIO.read(file);
             System.out.println("File lida!");
         } catch (IOException e){

@@ -17,7 +17,6 @@ import java.awt.image.BufferedImage;
 
 public class Controller {
     public static void transformImage(String nomeArquivo, String opcaoDesejada){
-        System.out.println("here");
         Reader reader = new Reader();
         BufferedImage image = reader.readImage(nomeArquivo);
         if(image == null){
