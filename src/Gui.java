@@ -11,6 +11,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 
+/**
+ * Cria a interface Grafica para o usuario.
+ *
+ * @author Breno Rodrigues, Bruno Novo, Gabriel Odakura
+ * @version 20231116
+ */
 public class Gui {
 
 	private JFrame painelImagem = new JFrame();
@@ -72,11 +78,8 @@ public class Gui {
         jpImagemMod.setMaximumSize(escalaPadrao);
 
         painelImagem.add(barraBotoes, BorderLayout.NORTH);
-//        painelImagem.add(jpImagemAtual, BorderLayout.WEST);
-//        painelImagem.add(jpImagemMod, BorderLayout.EAST);
         painelImagem.add(jpImagemAtual);
         painelImagem.add(jpImagemMod);
-
 
         jbEscolhaImagem.addActionListener(w -> {
             nomeArquivo = getFileAdress();
@@ -177,35 +180,24 @@ public class Gui {
             jlImagemMod = new JLabel(new ImageIcon(imagemMod.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
             jlImagemMod.setMaximumSize(new Dimension(largura,altura));
             jlImagemMod.setBounds(largura, 0, jpImagemMod.getWidth(), jpImagemMod.getHeight());
-            jpImagemMod.setLocation(5,45);
             jlImagemMod.setSize(new Dimension(largura,altura));
             jlImagemMod.setBackground(Color.BLACK);
+            jpImagemMod.setLocation(5,45);
             jpImagemMod.add(jlImagemMod);
             jpImagemMod.setBackground(Color.BLACK);
-            //gambiarra();
+
         }else{
             jpImagemMod.remove(jlImagemMod);
-            jlImagemMod = new JLabel(new ImageIcon(imagemMod.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
+            jlImagemMod.setIcon(new ImageIcon(imagemMod.getScaledInstance(altura, largura, Image.SCALE_DEFAULT)));
             jlImagemMod.setMaximumSize(new Dimension(largura,altura));
-            jlImagemMod.setBounds(0, 0, jpImagemMod.getWidth(), jpImagemMod.getHeight());
-            jpImagemMod.setLocation(30,30);
-            jlImagemMod.setBackground(Color.BLACK);
+            jlImagemMod.setBounds(largura, 0, jpImagemMod.getWidth(), jpImagemMod.getHeight());
+            jlImagemMod.setSize(new Dimension(largura,altura));
+            jlImagemMod.setBackground(Color.black);
+            jpImagemMod.setLocation(5,45);
             jpImagemMod.add(jlImagemMod);
-            jpImagemMod.setBackground(Color.BLACK);
-            jpImagemMod.updateUI();
-            //gambiarra();
+            jpImagemMod.setBackground(Color.black);
+            jpImagemMod.repaint();
+            jpImagemAtual.repaint();
         }
     }
-
-    private void gambiarra(){
-        jpImagemAtual.remove(jlImagemAtual);
-        jlImagemAtual = new JLabel(new ImageIcon(imagemAtual.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
-        jlImagemAtual.setBounds(0, 0, jpImagemAtual.getWidth(), jpImagemAtual.getHeight());
-        jlImagemAtual.setBackground(Color.BLACK);
-        jpImagemAtual.add(jlImagemAtual);
-        jpImagemAtual.setBackground(Color.BLACK);
-        jpImagemAtual.updateUI();
-    }
-
-
 }
