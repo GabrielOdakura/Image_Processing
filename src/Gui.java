@@ -77,6 +77,7 @@ public class Gui {
         painelImagem.add(jpImagemAtual);
         painelImagem.add(jpImagemMod);
 
+
         jbEscolhaImagem.addActionListener(w -> {
             nomeArquivo = getFileAdress();
             try{
@@ -87,8 +88,10 @@ public class Gui {
             }
             if(imagemAtual != null){
                 if(jlImagemAtual == null) {
+
                     jlImagemAtual = new JLabel(new ImageIcon(imagemAtual.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
                     jlImagemAtual.setBounds(0, 0, jpImagemAtual.getWidth(), jpImagemAtual.getHeight());
+                    jlImagemAtual.setLocation(0,0);
                     jlImagemAtual.setBackground(Color.BLACK);
                     jpImagemAtual.add(jlImagemAtual);
                     jpImagemAtual.setBackground(Color.BLACK);
@@ -115,7 +118,7 @@ public class Gui {
         	jbGreyscale.setToolTipText("Transforma as Cores para Cinza");
             if(nomeArquivo != null) {
                imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
-                setModifiedImage();
+               setModifiedImage();
             }
         });
 
@@ -124,6 +127,7 @@ public class Gui {
             jbBlackWhite.setToolTipText("Transforma as Cores para Preto e Branco");
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
+                setModifiedImage();
             }
         });
 
@@ -132,6 +136,7 @@ public class Gui {
             jbEdge.setToolTipText("Refina as bordas a Imagem");
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
+                setModifiedImage();
             }
         });
 
@@ -140,6 +145,7 @@ public class Gui {
             jbSharpen.setToolTipText("Aumenta a nitidez da Imagem");
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
+                setModifiedImage();
             }
         });
 
@@ -171,21 +177,23 @@ public class Gui {
             jlImagemMod = new JLabel(new ImageIcon(imagemMod.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
             jlImagemMod.setMaximumSize(new Dimension(largura,altura));
             jlImagemMod.setBounds(largura, 0, jpImagemMod.getWidth(), jpImagemMod.getHeight());
+            jpImagemMod.setLocation(5,45);
             jlImagemMod.setSize(new Dimension(largura,altura));
             jlImagemMod.setBackground(Color.BLACK);
             jpImagemMod.add(jlImagemMod);
             jpImagemMod.setBackground(Color.BLACK);
-            gambiarra();
+            //gambiarra();
         }else{
             jpImagemMod.remove(jlImagemMod);
             jlImagemMod = new JLabel(new ImageIcon(imagemMod.getScaledInstance(largura, altura, Image.SCALE_DEFAULT)));
             jlImagemMod.setMaximumSize(new Dimension(largura,altura));
             jlImagemMod.setBounds(0, 0, jpImagemMod.getWidth(), jpImagemMod.getHeight());
+            jpImagemMod.setLocation(30,30);
             jlImagemMod.setBackground(Color.BLACK);
             jpImagemMod.add(jlImagemMod);
             jpImagemMod.setBackground(Color.BLACK);
             jpImagemMod.updateUI();
-            gambiarra();
+            //gambiarra();
         }
     }
 
