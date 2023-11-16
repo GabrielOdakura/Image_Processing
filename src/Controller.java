@@ -1,7 +1,4 @@
-import imageProcessing.Blackwhite;
-import imageProcessing.EdgeDetection;
-import imageProcessing.Greyscale;
-import imageProcessing.Sharpen;
+import imageProcessing.*;
 import persistencia.Reader;
 import persistencia.Writer;
 
@@ -50,15 +47,24 @@ public class Controller {
                     Writer writer = new Writer();
                     writer.writeImage(novoNome, processedImage);
                 }
-            }else if(opcaoDesejada.equals("4")){
+            }else if(opcaoDesejada.equals("4")) {
                 processedImage = Sharpen.sharpenFilter(image);
                 String novoNome = JOptionPane.showInputDialog("Insira o nome do arquivo que você deseja salvar!");
-                if(novoNome == null){
+                if (novoNome == null) {
                     JOptionPane.showMessageDialog(null, "Fechando o programa!");
-                }else {
+                } else {
                     Writer writer = new Writer();
                     writer.writeImage(novoNome, processedImage);
                 }
+            }else if(opcaoDesejada.equals("5")){
+                new Histograma().display(image);
+                //String novoNome = JOptionPane.showInputDialog("Insira o nome do arquivo que você deseja salvar!");
+                //if(novoNome == null){
+                //    JOptionPane.showMessageDialog(null, "Fechando o programa!");
+                //}else {
+                    //Writer writer = new Writer();
+                    //writer.writeImage(novoNome, processedImage);
+               // }
             }
         }
         return processedImage;

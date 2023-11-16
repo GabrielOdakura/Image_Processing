@@ -153,7 +153,9 @@ public class Gui {
         });
 
         jbHistogran.addActionListener(w -> {
-            jbHistogran.setToolTipText("");
+            String opcaoDesejada = "5";
+            jbHistogran.setToolTipText("Cria um histograma da imagem");
+            imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
 
         });
         
