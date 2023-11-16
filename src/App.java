@@ -9,7 +9,7 @@ import javax.swing.*;
 public class App {
 
     public static void main(String args[]){
-    	new Gui(700,600);
+    	new Gui(1200,600);
 //        String nomeArquivo;
 //        String opcaoDesejada;
 //        nomeArquivo = JOptionPane.showInputDialog("Insira o nome do arquivo que você deseja transformar!");
