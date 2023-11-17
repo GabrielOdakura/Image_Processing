@@ -105,5 +105,7 @@ public class Histograma{
         f.pack();
         f.setLocationRelativeTo(null);
         f.setVisible(true);
+        f.setSize(1000,700);
+        f.setResizable(false);
     }
 }
