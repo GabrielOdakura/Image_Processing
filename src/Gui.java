@@ -122,6 +122,8 @@ public class Gui {
             if(nomeArquivo != null) {
                imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
                setModifiedImage();
+            }else {
+                JOptionPane.showMessageDialog(null, "Selecione uma imagem primeiro!");
             }
         });
 
@@ -131,6 +133,8 @@ public class Gui {
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
                 setModifiedImage();
+            }else {
+                JOptionPane.showMessageDialog(null, "Selecione uma imagem primeiro!");
             }
         });
 
@@ -140,6 +144,8 @@ public class Gui {
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
                 setModifiedImage();
+            }else {
+                JOptionPane.showMessageDialog(null, "Selecione uma imagem primeiro!");
             }
         });
 
@@ -149,6 +155,8 @@ public class Gui {
             if(nomeArquivo != null) {
                 imagemMod = Controller.transformImage(nomeArquivo, opcaoDesejada);
                 setModifiedImage();
+            }else {
+                JOptionPane.showMessageDialog(null, "Selecione uma imagem primeiro!");
             }
         });
 
